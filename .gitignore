@@ -46,6 +46,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+dataset
+.vscode
+checkpoints
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -142,7 +142,7 @@ class YoloDarknetFormatDetectionDataset(DetectionDataset):
 
         images_not_in_labels = unique_image_file_base_names - unique_label_file_base_names
         if images_not_in_labels:
-            logger.warning(f"{len(images_not_in_labels)} images are note associated to any label file")
+            logger.warning(f"{len(images_not_in_labels)} images are not associated to any label file")
 
         labels_not_in_images = unique_label_file_base_names - unique_image_file_base_names
         if labels_not_in_images:
@@ -228,8 +228,8 @@ class YoloDarknetFormatDetectionDataset(DetectionDataset):
         labels_yolo_format, invalid_labels = [], []
         for line in filter(lambda x: x != "\n", lines):
             try:
-                label_id, cx, cw, w, h = line.split()
-                labels_yolo_format.append([int(label_id), float(cx), float(cw), float(w), float(h)])
+                label_id, cx, cw, w, h, ori, idx1, idx2 = line.split()
+                labels_yolo_format.append([int(float(label_id)), float(cx), float(cw), float(w), float(h)])
             except Exception as e:
                 if ignore_invalid_labels:
                     invalid_labels.append(line)

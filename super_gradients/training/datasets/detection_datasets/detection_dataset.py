@@ -541,7 +541,8 @@ class DetectionDataset(Dataset):
                 plt.plot(boxes[:, [0, 2, 2, 0, 0]].T, boxes[:, [1, 1, 3, 3, 1]].T, ".-")
                 plt.axis("off")
             fig.tight_layout()
-            plt.show()
+            # plt.show()
+            plt.savefig('example.png')
             plt.close()
 
             plot_counter += 1

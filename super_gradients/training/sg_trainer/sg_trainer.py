@@ -1438,16 +1438,16 @@ class Trainer:
                     )
                     self.sg_logger.upload()
 
-                if not silent_mode:
-                    sg_trainer_utils.display_epoch_summary(
-                        epoch=context.epoch,
-                        n_digits=4,
-                        monitored_values_dict={
-                            "Train": self.train_monitored_values,
-                            "Validation": self.valid_monitored_values,
-                            "Test": self.test_monitored_values,
-                        },
-                    )
+                # if not silent_mode:
+                sg_trainer_utils.display_epoch_summary(
+                    epoch=context.epoch,
+                    n_digits=4,
+                    monitored_values_dict={
+                        "Train": self.train_monitored_values,
+                        "Validation": self.valid_monitored_values,
+                        "Test": self.test_monitored_values,
+                    },
+                )
 
             # Evaluating the average model and removing snapshot averaging file if training is completed
             if self.training_params.average_best_models:
